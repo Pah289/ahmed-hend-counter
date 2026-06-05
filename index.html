@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed ❤️ Hend</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#6a1b9a;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+h1{
+    font-size:40px;
+}
+
+#days{
+    font-size:50px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+#time{
+    font-size:24px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Ahmed ❤️ Hend</h1>
+
+<p>Together Since</p>
+
+<p>22 March 2026 - 5:00 PM</p>
+
+<div id="days"></div>
+
+<div id="time"></div>
+
+</div>
+
+<script>
+
+const startDate = new Date(2026,2,22,17,0,0);
+
+function updateCounter(){
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    if(diff < 0){
+        document.getElementById("days").innerHTML =
+        "Our Story Begins Soon 💜";
+        return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("days").innerHTML =
+    days + " Days ❤️";
+
+    document.getElementById("time").innerHTML =
+    hours + "h " +
+    minutes + "m " +
+    seconds + "s";
+}
+
+updateCounter();
+
+setInterval(updateCounter,1000);
+
+</script>
+
+</body>
+</html>
